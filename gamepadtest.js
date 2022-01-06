@@ -51,6 +51,11 @@ function addgamepad(gamepad) {
   // 2D Fighting Game notation
   var x = document.createElement("div");
   x.className = "directions";
+  var e = document.createElement("object");
+  e.setAttribute("type", "image/svg+xml");
+  e.setAttribute("data", "img/stickdisplay.svg");
+  x.appendChild(e);
+  d.appendChild(x);
   
   document.getElementById("start").style.display = "none";
   document.body.appendChild(d);
