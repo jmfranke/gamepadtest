@@ -19,9 +19,11 @@ function connecthandler(e) {
 function addgamepad(gamepad) {
   controllers[gamepad.index] = gamepad; var d = document.createElement("div");
   d.setAttribute("id", "controller" + gamepad.index);
+  // Controller Headline
   var t = document.createElement("h1");
   t.appendChild(document.createTextNode("gamepad: " + gamepad.id));
   d.appendChild(t);
+  // Button List
   var b = document.createElement("div");
   b.className = "buttons";
   for (var i=0; i<gamepad.buttons.length; i++) {
@@ -32,6 +34,7 @@ function addgamepad(gamepad) {
     b.appendChild(e);
   }
   d.appendChild(b);
+  // Analog Axis
   var a = document.createElement("div");
   a.className = "axes";
   for (i=0; i<gamepad.axes.length; i++) {
@@ -45,6 +48,10 @@ function addgamepad(gamepad) {
     a.appendChild(e);
   }
   d.appendChild(a);
+  // 2D Fighting Game notation
+  var x = document.createElement("div");
+  x.className = "directions";
+  
   document.getElementById("start").style.display = "none";
   document.body.appendChild(d);
   rAF(updateStatus);
